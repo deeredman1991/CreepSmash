@@ -3,11 +3,12 @@
 *.pyc
 *.old
 
-settings/*
-!settings/.defaults
-
 test.py
 test.json
-saves
-old
+
+#!/settings
+/settings/*
+#!/settings/.defaults
+/saves
+/old
 __pycache__
