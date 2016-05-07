@@ -1,0 +1,6 @@
+# Ignore files used for running the bot
+*.bat
+test.py
+test.json
+saves
+__pycache__
