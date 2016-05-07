@@ -2,6 +2,10 @@
 *.bat
 *.pyc
 *.old
+
+settings/*
+!settings/.defaults
+
 test.py
 test.json
 saves
