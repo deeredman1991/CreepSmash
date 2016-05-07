@@ -5,10 +5,7 @@
 
 test.py
 test.json
-
-#!/settings
 /settings/*
-#!/settings/.defaults
 /saves
 /old
 __pycache__
