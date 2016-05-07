@@ -6,6 +6,7 @@
 test.py
 test.json
 /settings/*
+!/settings/.defaults
 /saves
 /old
 __pycache__

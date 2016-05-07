@@ -1,0 +1,12 @@
+{
+    "Description": {
+        "Fontname": "Name of the file in the font directory.",
+        "Layout": "1 = Columns, 2 = Rows, 8 = TCOD",
+        "Width": "Number of characters across the font file horizontally.",
+        "Height": "Number of characters across the font file vertically."
+        },
+    "Fontname": "celtic_garamond_10x10_gs_tc.png",
+    "Layout": 8,
+    "Width": 32,
+    "Height": 8
+    }
