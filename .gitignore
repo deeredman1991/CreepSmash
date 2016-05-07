@@ -1,6 +1,9 @@
 # Ignore files used for running the bot
 *.bat
+*.pyc
+*.old
 test.py
 test.json
 saves
+old
 __pycache__
