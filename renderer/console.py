@@ -2,12 +2,24 @@ import tools.libtcod.libtcodpy as libtcod
 
 
 class Console():
-    def __init__(self, width=0, height=0):
+    def __init__(self, x=[0,0], y=[0,0]):
         self._settings = {
-            "Width": width,
-            "Height": height,
-            "Console": libtcod.console_new(width, height)
+            "x": x,
+            "y": y,
         }
+        self._settings["Width"] = int(max(self._settings["x"][1], self._settings["x"][0]) - min(self._settings["x"][1], self._settings["x"][0]))
+        self._settings["Height"] = int(max(self._settings["y"][1], self._settings["y"][0]) - min(self._settings["y"][1], self._settings["y"][0]))
+        
+        self._settings["Console"] = libtcod.console_new(self._settings["Width"], self._settings["Height"])
+        
+        
+    @property
+    def x(self):
+        return min(self._settings["x"][1], self._settings["x"][0])
+        
+    @property
+    def y(self):
+        return min(self._settings["y"][1], self._settings["y"][0])
         
     @property
     def height(self):
@@ -21,9 +33,7 @@ class Console():
     def console(self):
         return self._settings["Console"]
 
-    #   xSrc,ySrc,wSrc,hSrc | The rectangular area of the source console that will be blitted. If wSrc and/or hSrc == 0, the source console width/height are used
     #   dst | The destination console.
-    #   xDst,yDst | Where to blit the upper-left corner of the source area in the destination console.
-    #   foregroundAlpha,backgroundAlpha | normalized Alpha transparency of the blitted console.
-    def blit(self, xSrc, ySrc, wSrc, hSrc, dst, xDst, yDst, foregroundAlpha=1.0, backgroundAlpha=1.0):
-        libtcod.console_blit(self._settings["Console"], xSrc, ySrc, wSrc, hSrc, dst, xDst, yDst, foregroundAlpha, backgroundAlpha)
+    #   foregroundAlpha, backgroundAlpha | Normalized Alpha transparency of the blitted console.
+    def blit(self, dst, foregroundAlpha = 1.0, backgroundAlpha = 1.0):
+        libtcod.console_blit(self._settings["Console"], 0, 0, self.width, self.height, dst, self.x, self.y, foregroundAlpha, backgroundAlpha)

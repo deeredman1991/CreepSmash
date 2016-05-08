@@ -14,11 +14,10 @@ window = root_console.RootConsole()
 def main():
     if not os.path.exists('saves/autosave'):
         os.makedirs('saves/autosave')
-
-    
-
+        
     while not libtcod.console_is_window_closed():
         libtcod.console_set_default_foreground(0, libtcod.white)
+        
         for x in range(0, window.viewport.width):
             for y in range (0, window.viewport.height):
                 if x == 0 or y == 0 or x == window.viewport.width-1 or y == window.viewport.height-1:
@@ -27,12 +26,14 @@ def main():
                     libtcod.console_put_char(window.viewport.console, x, y, '.', libtcod.BKGND_NONE)
                 if x == 0 and y == 0:
                     libtcod.console_put_char_ex(window.viewport.console, x, y, '0', libtcod.black, libtcod.light_red)
-                    
+        
         for x in range(0, window.stats_panel.width):
             for y in range(0, window.stats_panel.height):
-                if x != window.stats_panel.width and y != window.stats_panel.height:
-                    libtcod.console_put_char_ex(window.stats_panel.console, x, y, ' ', libtcod.black, libtcod.light_orange)
-                
+                if x == 0 or y == 0 or x == window.stats_panel.width-1 or y == window.stats_panel.height-1:
+                    libtcod.console_put_char_ex(window.stats_panel.console, x, y, ' ', libtcod.black, libtcod.light_orange) 
+                else:
+                    libtcod.console_put_char_ex(window.stats_panel.console, x, y, '.', libtcod.white, libtcod.dark_orange)
+
         for x in range(0, window.inventory_panel.width):
             for y in range(0, window.inventory_panel.height):
                 if x == 0 or y == 0 or x == window.inventory_panel.width-1 or y == window.inventory_panel.height-1:
@@ -55,6 +56,5 @@ def main():
         window.render_all()
         
         libtcod.console_wait_for_keypress(True)
-    
-    
+        
 main()
