@@ -33,31 +33,3 @@ class JDict(dict):
             jsonData = json.load(infile)
         self = jsonData
         return self
-        
-        
-if __name__ == '__main__':
-    #print ('hola')
-    myDict = JDict('test.json',{
-        'blah': 'ha',
-        'blo': 'so',
-        'folo': 'bobo'
-    })
-    '''
-    myDict['blah'] = 'ha'
-    myDict['blo'] = 'so'
-    myDict['folo'] = 'bobo'
-    '''
-    '''
-    myDict = {
-        'blah': 'ha',
-        'blo': 'so',
-        'folo': 'bobo'
-    }
-    '''
-    
-    myDict['blah'] = 'za'
-    #myDict.write()
-    
-    #print (myDict.read())
-    print (myDict)
-        
