@@ -1,7 +1,7 @@
 import tools.libtcod.libtcodpy as libtcod
 
 
-class Console():
+class Console(object):
     def __init__(self, x=[0,0], y=[0,0], parent_console=None):
         self._settings = {
             "x": x,
