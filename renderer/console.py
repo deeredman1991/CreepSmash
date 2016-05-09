@@ -42,6 +42,3 @@ class Console():
     def blit(self, destination_console = None, foregroundAlpha = 1.0, backgroundAlpha = 1.0):
         destination_console = destination_console or self.parent_console.console
         libtcod.console_blit(self._settings["Console"], 0, 0, self.width, self.height, destination_console, self.x, self.y, foregroundAlpha, backgroundAlpha)
-        
-    def draw():
-        raise Exception("You called the draw function on a console class that doesn't impliment a draw function.")
