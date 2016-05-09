@@ -28,7 +28,9 @@ class AudioPlayer(object):
             time.sleep(0.5)
         self._audio_file = musicfile
         self._music_track = self._audio_file
-        threading.Thread( target = (self._play_audio) ).start()
+        music_thread = threading.Thread( target = (self._play_audio) )
+        music_thread.setDaemon( True )
+        music_thread.start()
         
     def play_sound(self, soundfile):
         self._audio_file = soundfile
