@@ -1,4 +1,4 @@
-import renderer.console as console
+from renderer import console, viewport, stats_panel, inventory_panel, equipment_panel
 import tools.toolbox as toolbox
 import tools.libtcod.libtcodpy as libtcod
 
@@ -23,35 +23,39 @@ class RootConsole(console.Console):
         _equipment_panel_height = 20
         _stats_panel_height = 2
         
-        self.viewport = console.Console (
+        self.viewport = viewport.ViewportConsole (
         x = [0, self.width - _side_panels_width],
-        y = [0, self.height - _stats_panel_height]
+        y = [0, self.height - _stats_panel_height],
+        parent_console = self.console
         )
         
-        self.equipment_panel = console.Console(
+        self.equipment_panel = equipment_panel.EquipmentPanelConsole (
             x = [self.viewport.width, self.width],
-            y = [0, _equipment_panel_height]
+            y = [0, _equipment_panel_height],
+            parent_console = self.console
             )
         
-        self.inventory_panel = console.Console(
+        self.inventory_panel = inventory_panel.InventoryPanelConsole (
             x = [self.viewport.width, self.width],
-            y = [self.equipment_panel.height, self.height]
+            y = [self.equipment_panel.height, self.height],
+            parent_console = self.console
             )
         
-        self.stats_panel = console.Console(
+        self.stats_panel = stats_panel.StatsPanelConsole (
             x = [0, self.width - _side_panels_width],
-            y = [self.viewport.height, self.viewport.height + _stats_panel_height]
+            y = [self.viewport.height, self.viewport.height + _stats_panel_height],
+            parent_console = self.console
             )
         
     def render_all(self):
-        self.blit_all()
+        self.draw()
         self.flush()
         
     def flush(self):
         libtcod.console_flush()
-        
-    def blit_all(self):
-        self.viewport.blit(self.console)
-        self.equipment_panel.blit(self.console)
-        self.inventory_panel.blit(self.console)
-        self.stats_panel.blit(self.console)
+    
+    def draw(self):
+        self.viewport.draw()
+        self.equipment_panel.draw()
+        self.inventory_panel.draw()
+        self.stats_panel.draw()
