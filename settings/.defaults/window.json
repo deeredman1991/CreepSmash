@@ -5,6 +5,6 @@
         "Height": "Number of characters across the window vertically."
         },
     "Fullscreen": false,
-    "Width": 80,
-    "Height": 50
+    "Width": 125,
+    "Height": 70
     }
