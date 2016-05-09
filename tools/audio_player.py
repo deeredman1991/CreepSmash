@@ -1,3 +1,4 @@
+import tools.toolbox as toolbox
 import threading
 import time
 import tools.pyaudio.pyaudio as pyaudio
@@ -6,6 +7,7 @@ import wave
 
 class AudioPlayer(object):
     def __init__(self):
+        self._music_settings = toolbox.parseJson('settings/music')
         self._audio_file = None
         self._music_track = None
         self._stop_music = False
@@ -18,11 +20,17 @@ class AudioPlayer(object):
     def music_track(self, track):
         if track != None:
             self.play_music(track)
+            
+    @property
+    def music_settings(self):
+        return self._music_settings
         
     def stop_music(self):
         self._stop_music = True
         
     def play_music(self, musicfile):
+        if self._music_settings["PlayMusic"] == False:
+            return
         while self._music_track != None:
             self.stop_music()
             time.sleep(0.5)
@@ -70,11 +78,3 @@ class AudioPlayer(object):
             self._music_track = None
             self.playing_music = False
             
-
-if __name__ == '__main__':
-    csAnthem = "sound/music/Creepsmash_Anthem.wav"
-    tick = "sound/tick.wav"
-
-    audio_player = AudioPlayer()
-    audio_player.play_music(csAnthem)
-    print ("Now playing Creepsmash Anthem!")

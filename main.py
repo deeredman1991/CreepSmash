@@ -1,15 +1,10 @@
-import sys
 import os
 import renderer.root_console as root_console
 import tools.audio_player as audio_player
 import tools.libtcod.libtcodpy as libtcod
 import tools.toolbox as toolbox
 
-
-sys.dont_write_bytecode = True
-
 keybindings = toolbox.parseJson('settings/keybindings')
-music = toolbox.parseJson('settings/music')
 
 print ( keybindings["KeyCodes"][ keybindings['Controls']['CamUp'] ] )
 print ( keybindings["KeyCodes"][ keybindings['Controls']['CamDown'] ] )
@@ -24,7 +19,7 @@ def main():
     while not libtcod.console_is_window_closed():
         
         if audio_player.music_track == None:
-            audio_player.music_track = music["WorldTheme"]
+            audio_player.music_track = audio_player.music_settings["WorldTheme"]
         
         window.render_all()
         
