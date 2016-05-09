@@ -13,4 +13,4 @@ class ViewportConsole(console.Console):
                     
         libtcod.console_put_char_ex(self.console, 30, 30, '@', libtcod.white, libtcod.BKGND_NONE)
         
-        self.blit(self.parent_console)
+        self.blit()

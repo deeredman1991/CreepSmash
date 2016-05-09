@@ -26,25 +26,25 @@ class RootConsole(console.Console):
         self.viewport = viewport.ViewportConsole (
         x = [0, self.width - _side_panels_width],
         y = [0, self.height - _stats_panel_height],
-        parent_console = self.console
+        parent_console = self
         )
         
         self.equipment_panel = equipment_panel.EquipmentPanelConsole (
             x = [self.viewport.width, self.width],
             y = [0, _equipment_panel_height],
-            parent_console = self.console
+            parent_console = self
             )
         
         self.inventory_panel = inventory_panel.InventoryPanelConsole (
             x = [self.viewport.width, self.width],
             y = [self.equipment_panel.height, self.height],
-            parent_console = self.console
+            parent_console = self
             )
         
         self.stats_panel = stats_panel.StatsPanelConsole (
             x = [0, self.width - _side_panels_width],
             y = [self.viewport.height, self.viewport.height + _stats_panel_height],
-            parent_console = self.console
+            parent_console = self
             )
         
     def render_all(self):

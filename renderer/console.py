@@ -37,10 +37,11 @@ class Console():
     def parent_console(self):
         return self._settings["Parent_Console"]
 
-    #   dst | The destination console.
+    #   destination_console | The destination to be blitted to.
     #   foregroundAlpha, backgroundAlpha | Normalized Alpha transparency of the blitted console.
-    def blit(self, dst, foregroundAlpha = 1.0, backgroundAlpha = 1.0):
-        libtcod.console_blit(self._settings["Console"], 0, 0, self.width, self.height, dst, self.x, self.y, foregroundAlpha, backgroundAlpha)
+    def blit(self, destination_console = None, foregroundAlpha = 1.0, backgroundAlpha = 1.0):
+        destination_console = destination_console or self.parent_console.console
+        libtcod.console_blit(self._settings["Console"], 0, 0, self.width, self.height, destination_console, self.x, self.y, foregroundAlpha, backgroundAlpha)
         
     def draw():
         raise Exception("You called the draw function on a console class that doesn't impliment a draw function.")

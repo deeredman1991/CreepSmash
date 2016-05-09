@@ -11,4 +11,4 @@ class EquipmentPanelConsole(console.Console):
                 else:
                     libtcod.console_put_char_ex(self.console, x, y, '/', libtcod.black, libtcod.light_purple)
                     
-        self.blit(self.parent_console)
+        self.blit()

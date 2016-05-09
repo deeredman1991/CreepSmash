@@ -11,4 +11,4 @@ class StatsPanelConsole(console.Console):
                 else:
                     libtcod.console_put_char_ex(self.console, x, y, '.', libtcod.white, libtcod.dark_orange)
                     
-        self.blit(self.parent_console)
+        self.blit()
