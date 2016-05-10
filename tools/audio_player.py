@@ -6,8 +6,8 @@ import wave
 
 
 class AudioPlayer(object):
-    def __init__(self):
-        self._music_settings = toolbox.parseJson('settings/music')
+    def __init__(self, jSettings):
+        self._music_settings = jSettings.music
         self._audio_file = None
         self._music_track = None
         self._stop_music = False

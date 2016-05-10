@@ -24,15 +24,16 @@ import os
 import renderer.root_console as root_console
 import tools.audio_player as audio_player
 import tools.libtcod.libtcodpy as libtcod
-import tools.toolbox as toolbox
+import settings.settings as jSettings
 
-keybindings = toolbox.parseJson('settings/keybindings')
+settings = jSettings.Settings()
+keybindings = settings.keybindings
 
 print ( keybindings["KeyCodes"][ keybindings['Controls']['CamUp'] ] )
 print ( keybindings["KeyCodes"][ keybindings['Controls']['CamDown'] ] )
 
-window = root_console.RootConsole()
-audio_player = audio_player.AudioPlayer()
+window = root_console.RootConsole(settings)
+audio_player = audio_player.AudioPlayer(settings)
 
 def main():
     if not os.path.exists('saves/autosave'):

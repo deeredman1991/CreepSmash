@@ -4,13 +4,13 @@ import tools.libtcod.libtcodpy as libtcod
 
 
 class RootConsole(console.Console):
-    def __init__(self):
-        self.font_settings = toolbox.parseJson('settings/font.json')
+    def __init__(self, jSettings):
+        self.font_settings = jSettings.font
         libtcod.console_set_custom_font('fonts/{}'.format(self.font_settings['Fontname']), 
                                         libtcod.FONT_TYPE_GREYSCALE | self.font_settings['Layout'], 
                                         self.font_settings['Width'], self.font_settings['Height'])
                                  
-        window_settings = toolbox.parseJson('settings/window.json')
+        window_settings = jSettings.window
         self._settings = {
             "x": [0, window_settings["Width"]],
             "y": [0, window_settings["Height"]],

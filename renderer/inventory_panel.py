@@ -12,3 +12,4 @@ class InventoryPanelConsole(console.Console):
                     libtcod.console_put_char_ex(self.console, x, y, '*', libtcod.black, libtcod.light_blue)
                     
         self.blit()
+        

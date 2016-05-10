@@ -1,0 +1,6 @@
+{
+    "Description": {
+        "LoadedSave": "The save that will be loaded when the game starts."
+        },
+    "LoadedSave": "saves/autosave"
+}
