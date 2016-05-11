@@ -33,11 +33,6 @@ keybindings = settings.keybindings
 print ( keybindings["KeyCodes"][ keybindings['Controls']['CamUp'] ] )
 print ( keybindings["KeyCodes"][ keybindings['Controls']['CamDown'] ] )
 
-print (id_handler.get_unused_ID(settings))
-print (id_handler.get_unused_ID(settings))
-print (id_handler.recycle_ID(settings, 0))
-print (id_handler.get_unused_ID(settings))
-
 window = root_console.RootConsole(settings)
 audio_player = audio_player.AudioPlayer(settings)
 
