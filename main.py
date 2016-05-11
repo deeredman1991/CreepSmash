@@ -24,6 +24,7 @@ import os
 import renderer.root_console as root_console
 import tools.audio_player as audio_player
 import tools.libtcod.libtcodpy as libtcod
+import tools.id_handler as id_handler
 import settings.settings as jSettings
 
 settings = jSettings.Settings()
@@ -31,6 +32,11 @@ keybindings = settings.keybindings
 
 print ( keybindings["KeyCodes"][ keybindings['Controls']['CamUp'] ] )
 print ( keybindings["KeyCodes"][ keybindings['Controls']['CamDown'] ] )
+
+print (id_handler.get_unused_ID(settings))
+print (id_handler.get_unused_ID(settings))
+print (id_handler.recycle_ID(settings, 0))
+print (id_handler.get_unused_ID(settings))
 
 window = root_console.RootConsole(settings)
 audio_player = audio_player.AudioPlayer(settings)
