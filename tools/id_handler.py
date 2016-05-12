@@ -1,7 +1,7 @@
 import tools.toolbox as toolbox
 import os.path
 import shutil
-import tools.QJson as QJson
+import tools.JPyon as JPyon
 
 def get_unused_ID(jSettings):
     IDs_json = "{}/IDs.json".format(jSettings.saving["LoadedSave"])
@@ -9,7 +9,7 @@ def get_unused_ID(jSettings):
     if not os.path.isfile(IDs_json):
         shutil.copyfile('saves/.defaults/IDs.json', IDs_json)
     
-    ID_settings = QJson.JDict( IDs_json, toolbox.parseJson( IDs_json ) )
+    ID_settings = JPyon.JDict( IDs_json, toolbox.parseJson( IDs_json ) )
     
     if len(ID_settings["UnusedIDs"]) > 0:
         return ID_settings["UnusedIDs"].pop(0)
@@ -25,7 +25,7 @@ def recycle_ID(jSettings, ID):
     if not os.path.isfile(IDs_json):
         shutil.copyfile( 'saves/.defaults/IDs.json', IDs_json )
     
-    ID_settings = QJson.JDict( IDs_json, toolbox.parseJson( IDs_json ) )
+    ID_settings = JPyon.JDict( IDs_json, toolbox.parseJson( IDs_json ) )
     
     ID_settings["UnusedIDs"].append(ID)
     

@@ -1,10 +1,10 @@
-import tools.QJson as QJson
+import tools.JPyon as JPyon
 import tools.toolbox as toolbox
 
 class Settings():
     def __init__(self):
-        self.font = QJson.JDict( "settings/font", toolbox.parseJson("settings/font") )
-        self.keybindings = QJson.JDict( "settings/keybindings", toolbox.parseJson("settings/keybindings") )
-        self.music = QJson.JDict( "settings/music", toolbox.parseJson("settings/music") )
-        self.saving = QJson.JDict( "settings/saving", toolbox.parseJson("settings/saving") )
-        self.window = QJson.JDict( "settings/window", toolbox.parseJson("settings/window") )
+        self.font = JPyon.JDict( "settings/font.json", toolbox.parseJson("settings/font") )
+        self.keybindings = JPyon.JDict( "settings/keybindings.json", toolbox.parseJson("settings/keybindings") )
+        self.music = JPyon.JDict( "settings/music.json", toolbox.parseJson("settings/music") )
+        self.saving = JPyon.JDict( "settings/saving.json", toolbox.parseJson("settings/saving") )
+        self.window = JPyon.JDict( "settings/window.json", toolbox.parseJson("settings/window") )
