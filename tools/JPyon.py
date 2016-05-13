@@ -1,4 +1,5 @@
 # The MIT License (MIT)
+# The MIT License (MIT)
 # 
 # Copyright (c) 2016 deeredman1991
 # 
@@ -61,10 +62,6 @@ class JList(list):
         elif isinstance(_item, unicode) and '.json' in _item and _item != super(JList, self).__getitem__('_jpyon_filepath'):
             if _JPYONS_OBJECTS.has_key(_item):
                 _item = _JPYONS_OBJECTS[_item]
-            else:
-                _item_copy = _item
-                _item = JPyon(_item)
-                _JPYONS_OBJECTS[_item_copy] = _item
         elif hasattr(self, '_jpyon_filepath'):
             if _JPYONS_LISTS.has_key( self._jpyon_filepath ):
                 _existing_JList = _JPYONS_LISTS[self._jpyon_filepath]
@@ -252,10 +249,6 @@ class JDict(dict):
         elif isinstance(_item, unicode) and '.json' in _item and _item != super(JDict, self).__getitem__('_jpyon_filepath'):
             if _JPYONS_OBJECTS.has_key(_item):
                 _item = _JPYONS_OBJECTS[_item]
-            else:
-                _item_copy = _item
-                _item = JPyon(_item)
-                _JPYONS_OBJECTS[_item_copy] = _item
         elif self.has_key('_jpyon_filepath'):
             if _JPYONS_DICTS.has_key( super(JDict, self).__getitem__('_jpyon_filepath') ):
                 _existing_JDict = _JPYONS_DICTS[super(JDict, self).__getitem__('_jpyon_filepath')]
@@ -343,10 +336,6 @@ class JPyon(object):
         if isinstance(_attr, unicode) and '.json' in _attr and _attr != super(JPyon, self).__getattribute__('_jpyon_filepath'):
             if _JPYONS_OBJECTS.has_key(_attr):
                 _attr = _JPYONS_OBJECTS[_attr]
-            else:
-                _attr_copy = _attr
-                _attr = JPyon(_attr)
-                _JPYONS_OBJECTS[_attr_copy] = _attr
         return _attr
         
     def __setattr__(self, name, value):
