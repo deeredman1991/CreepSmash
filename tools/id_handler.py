@@ -1,7 +1,7 @@
 import tools.toolbox as toolbox
 import os.path
 import shutil
-import tools.JPyon as JPyon
+import tools.jpyon as JPyon
 
 def get_unused_ID(jSettings):
     IDs_json = "{}/IDs.json".format(jSettings.saving["LoadedSave"])

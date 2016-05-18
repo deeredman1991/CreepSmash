@@ -1,4 +1,4 @@
-import tools.JPyon as JPyon
+import tools.jpyon as JPyon
 import tools.toolbox as toolbox
 
 class Settings():
