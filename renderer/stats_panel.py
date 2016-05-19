@@ -1,7 +1,6 @@
 import renderer.console as console
 import tools.libtcod.libtcodpy as libtcod
 
-
 class StatsPanelConsole(console.Console):
     def __init__(self, *args, **kwargs):
         super(StatsPanelConsole, self).__init__(*args, **kwargs)
@@ -17,7 +16,7 @@ class StatsPanelConsole(console.Console):
         
         #Placeholder code for drawing health and mana values to screen!
         self.draw_major_stat("HEALTH", 250, 250, libtcod.darker_red, libtcod.darker_green)
-        self.draw_major_stat("MANA", 500, 1000, libtcod.darker_blue, libtcod.darker_blue)
+        self.draw_major_stat("ARKANA", 500, 1000, libtcod.darker_blue, libtcod.darker_blue)
         
         self.blit()
         self.major_stats = 0

@@ -2,7 +2,7 @@ import tools.libtcod.libtcodpy as libtcod
 
 
 class Console(object):
-    def __init__(self, jSettings, x=[0,0], y=[0,0], parent_console=None):
+    def __init__(self, x=[0,0], y=[0,0], parent_console=None):
         self._settings = {
             "x": x,
             "y": y,
@@ -11,8 +11,6 @@ class Console(object):
         self._settings["Width"] = int(max(self._settings["x"][1], self._settings["x"][0]) - min(self._settings["x"][1], self._settings["x"][0]))
         self._settings["Height"] = int(max(self._settings["y"][1], self._settings["y"][0]) - min(self._settings["y"][1], self._settings["y"][0]))
         self._settings["Console"] = libtcod.console_new(self._settings["Width"], self._settings["Height"])
-        
-        self.jSettings = jSettings
         
     @property
     def x(self):

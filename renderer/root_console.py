@@ -24,28 +24,24 @@ class RootConsole(console.Console):
         _stats_panel_height = 2
         
         self.viewport = viewport.ViewportConsole (
-            jSettings,
             x = [0, self.width - _side_panels_width],
             y = [0, self.height - _stats_panel_height],
             parent_console = self
             )
         
         self.equipment_panel = equipment_panel.EquipmentPanelConsole (
-            jSettings,
             x = [self.viewport.width, self.width],
             y = [0, _equipment_panel_height],
             parent_console = self
             )
         
         self.inventory_panel = inventory_panel.InventoryPanelConsole (
-            jSettings,
             x = [self.viewport.width, self.width],
             y = [self.equipment_panel.height, self.height],
             parent_console = self
             )
         
         self.stats_panel = stats_panel.StatsPanelConsole (
-            jSettings,
             x = [0, self.width - _side_panels_width],
             y = [self.viewport.height, self.viewport.height + _stats_panel_height],
             parent_console = self
