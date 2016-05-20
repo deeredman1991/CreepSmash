@@ -11,5 +11,8 @@ class InventoryPanelConsole(console.Console):
                 else:
                     libtcod.console_put_char_ex(self.console, x, y, '*', libtcod.black, libtcod.light_blue)
                     
+        libtcod.console_set_default_foreground(self.console, libtcod.white)
+        libtcod.console_print(self.console, 0, 0, "INVENTORY")
+                    
         self.blit()
         
