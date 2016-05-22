@@ -13,6 +13,15 @@ class InventoryPanelConsole(console.Console):
                     
         libtcod.console_set_default_foreground(self.console, libtcod.white)
         libtcod.console_print(self.console, 0, 0, "INVENTORY")
+        
+        temp_inventory = ['this', 'that', 'something else']
+        
+        self.draw_inventory_list(temp_inventory)
                     
         self.blit()
+        
+    def draw_inventory_list(self, list):
+        libtcod.console_set_default_foreground(self.console, libtcod.white)
+        for k, v in enumerate(list):
+            libtcod.console_print(self.console, 1, k+1, v.capitalize())
         
