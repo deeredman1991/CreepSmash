@@ -13,5 +13,15 @@ class EquipmentPanelConsole(console.Console):
                     
         libtcod.console_set_default_foreground(self.console, libtcod.white)
         libtcod.console_print(self.console, 0, 0, "EQUIPMENT")
+        
+        temp_equipment = {"L.Hand":"Shield", "R.Hand":"Sword of Ages", "Foot":"Toe Ring"}
+        self.draw_equipment_list(temp_equipment)
                     
         self.blit()
+        
+    def draw_equipment_list(self, dict):
+        libtcod.console_set_default_foreground(self.console, libtcod.white)
+        i = 1
+        for k, v in dict.iteritems():
+            libtcod.console_print(self.console, 1, i, '{}: {}'.format(k.capitalize(), v.capitalize()))
+            i += 1
