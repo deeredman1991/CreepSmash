@@ -23,5 +23,5 @@ class EquipmentPanelConsole(console.Console):
         libtcod.console_set_default_foreground(self.console, libtcod.white)
         i = 1
         for k, v in dict.iteritems():
-            libtcod.console_print(self.console, 1, i, '{}: {}'.format(k.capitalize(), v.capitalize()))
+            libtcod.console_print(self.console, 1, i, '{}: {}'.format(str(k), str(v)))
             i += 1
