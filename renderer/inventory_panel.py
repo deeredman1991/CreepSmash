@@ -16,7 +16,7 @@ class InventoryPanelConsole(console.Console):
         
         temp_inventory = []
         
-        for i in range(0, self.height-1):
+        for i in range(0, self.height-3):
             temp_inventory.append(i)
         
         self.draw_inventory_list(temp_inventory)
@@ -32,8 +32,10 @@ class InventoryPanelConsole(console.Console):
             libtcod.console_print(self.console, 1, k+1, str(v))
             
     def draw_scroll_bar(self, list):
-        libtcod.console_put_char_ex( self.console, self.width-2, 1, '^', libtcod.black, libtcod.white)
         for i in range(2, self.height-2):
+            libtcod.console_put_char_ex( self.console, self.width-2, i, ' ', libtcod.black, libtcod.gray)
+        libtcod.console_put_char_ex( self.console, self.width-2, 1, '^', libtcod.black, libtcod.white)
+        for i in range(2, (self.height-2)-((self.height-2)-len(list)+2)):
             libtcod.console_put_char_ex( self.console, self.width-2, i, ' ', libtcod.black, libtcod.black)
         libtcod.console_put_char_ex( self.console, self.width-2, self.height-2, 'v', libtcod.black, libtcod.white)
         #libtcod.console_print(self.console, self.width-2, 1, '^')
