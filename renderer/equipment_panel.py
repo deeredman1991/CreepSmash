@@ -22,6 +22,6 @@ class EquipmentPanelConsole(console.Console):
     def draw_equipment_list(self, dict):
         libtcod.console_set_default_foreground(self.console, libtcod.white)
         i = 1
-        for k, v in dict.iteritems():
+        for k, v in dict.items():
             libtcod.console_print(self.console, 1, i, '{}: {}'.format(str(k), str(v)))
             i += 1

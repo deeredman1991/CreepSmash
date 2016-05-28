@@ -16,7 +16,7 @@ class InventoryPanelConsole(console.Console):
         
         temp_inventory = []
         
-        for i in range(0, self.height-3):
+        for i in range(0, self.height-2+1):
             temp_inventory.append(i)
         
         self.draw_inventory_list(temp_inventory)
@@ -29,16 +29,20 @@ class InventoryPanelConsole(console.Console):
     def draw_inventory_list(self, list):
         libtcod.console_set_default_foreground(self.console, libtcod.white)
         for k, v in enumerate(list):
-            libtcod.console_print(self.console, 1, k+1, str(v))
+            if k != self.height-2:
+                libtcod.console_print(self.console, 1, k+1, str(v))
             
     def draw_scroll_bar(self, list):
+        bar_size = (self.height-2)-(len(list)+4-self.height-2)
+        if bar_size >= self.height-2:
+            return
+        elif bar_size < 3:
+            bar_size = 3
+        
         for i in range(2, self.height-2):
             libtcod.console_put_char_ex( self.console, self.width-2, i, ' ', libtcod.black, libtcod.gray)
         libtcod.console_put_char_ex( self.console, self.width-2, 1, '^', libtcod.black, libtcod.white)
-        for i in range(2, (self.height-2)-((self.height-2)-len(list)+2)):
+        for i in range(2, bar_size):
             libtcod.console_put_char_ex( self.console, self.width-2, i, ' ', libtcod.black, libtcod.black)
         libtcod.console_put_char_ex( self.console, self.width-2, self.height-2, 'v', libtcod.black, libtcod.white)
-        #libtcod.console_print(self.console, self.width-2, 1, '^')
-        #for k, v in enumerate(list):
-        #    libtcod.console_print(self.console, 1, k+1, str(v))
         
