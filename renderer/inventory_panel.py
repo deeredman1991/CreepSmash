@@ -32,10 +32,10 @@ class InventoryPanelConsole(console.Console):
             if k != self.height-2:
                 if len(list) >= self.height-1:
                     if len(v) >= (self.width-3):
-                        v = '{}...'.format(v[0:self.width-6])
+                        v = '{}...'.format(v[0:self.width-2-3-1])
                 else:
                     if len(v) >= (self.width-2):
-                        v = '{}...'.format(v[0:self.width-5])
+                        v = '{}...'.format(v[0:self.width-2-3])
                 libtcod.console_print(self.console, 1, k+1, str(v))
                     
             
