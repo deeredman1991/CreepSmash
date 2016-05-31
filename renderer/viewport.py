@@ -9,7 +9,7 @@ class ViewportConsole(console.Console):
                 if x == 0 or y == 0 or x == self.width-1 or y == self.height-1:
                     libtcod.console_put_char_ex(self.console, x, y, ' ', libtcod.black, libtcod.light_grey)
                 else:
-                    libtcod.console_put_char(self.console, x, y, '.', libtcod.BKGND_NONE)
+                    libtcod.console_put_char(self.console, x, y, ' ', libtcod.BKGND_NONE)
                     
         libtcod.console_put_char_ex(self.console, 30, 30, '@', libtcod.white, libtcod.BKGND_NONE)
         
